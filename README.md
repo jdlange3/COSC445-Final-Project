@@ -10,9 +10,9 @@ The primary goal of this project is to mine and analyze the repository metadata 
 We plan to extract the commit history of the repo by using a script to look at the timeline of the project.
 
 ## Current Team Members
+* Jonathan Lange
 * Tristan Lopez
 * Noah Cash
-* Jonathan Lange
 * Ar-Raniry Ar-Rasyid
 
 ## Additional Team Members
