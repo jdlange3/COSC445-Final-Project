@@ -1,0 +1,76 @@
+pre/post;prj;commit;author;time;message
+pre;vichan-devel_vichan;9fdbc6c1f0c7c5d9634ee68391cb076670947dda;Fredrick Brennan <copypaste@kittens.ph>;1569149890;clarify previous commit
+pre;vichan-devel_vichan;1613f6baeab1a61ced5678bf2e6742cef36df4d9;Kureva <agreatlittlegirl@cock.li>;1571035539;Option to reset thread `bump` after last post deleted.
+pre;vichan-devel_vichan;0a3bca7dd8b178863586d16cf38d2c131ea314d5;rarjpg <57395050+rarjpg@users.noreply.github.com>;1572950049;Various fixes
+pre;vichan-devel_vichan;63b0b92690b0f8aefbdab14450b3e3d7da977a1e;rarjpg <57395050+rarjpg@users.noreply.github.com>;1573551263;Move HTML Tidy 'bare' option to the config
+pre;vichan-devel_vichan;af06cf37378806e7718a56a7a439b06bc4250514;Fredrick Brennan <copypaste@kittens.ph>;1579059411;"Disable `check_updates` by default
+
+It no longer works and never will again, so..."
+pre;vichan-devel_vichan;c7e5cd681481708f436554bb11069fd1c63b1fae;Daniel Saunders <dsaunders@dansaunders.me>;1579413961;"$board can be NULL here, prevent indexing it
+
+Simplest 7.4 fix ever? Possibly."
+pre;vichan-devel_vichan;2600298be843455c3a52406bf3e71a2a694a95cb;Daniel Saunders <dsaunders@dansaunders.me>;1579469950;Theme fixes
+pre;vichan-devel_vichan;a2ba03849f3adefa745838bff626c8304eb3d8c7;Fredrick Brennan <copypaste@kittens.ph>;1579484933;Fix PHP 7.4 deprecations
+pre;vichan-devel_vichan;5e809047ad7427386e1507a52b7d050379013877;Fredrick Brennan <copypaste@kittens.ph>;1579485683;"By default, no longer treat deprecations as errors
+
+Close #363.
+
+See also https://www.youtube.com/watch?v=9crnlHLVdno"
+pre;vichan-devel_vichan;01538ed33a166725e3358c288aa57e35596ad37f;Fredrick Brennan <copypaste@kittens.ph>;1579571189;"Close #366
+
+I don't know why this works, but this extra whitespace is required on
+PHP 7.4.
+
+If you want to know why I hate PHP updates, this is why."
+post;vichan-devel_vichan;a268004c7ae8625f13e04e12bcaddc68a6000c37;papereth <69432409+papereth@users.noreply.github.com>;1597023110;"Fix wrong variable used in ban lookup (#376)
+
+` $_SERVER['REMOTE_ADDR']` was hardcoded in ban lookup instead of `$ip` variable"
+post;vichan-devel_vichan;cf6a7339318aad423e81a583095707bfda2fa161;Eman Gamer <32711803+emangamer@users.noreply.github.com>;1597026333;"Fix Capitalization on setUpControl for Chromium (#378)
+
+Chromium browsers expect capital U in setUpControl and old version of webm-settings.js has setupControl which causes a error and makes expand-video.js not work and options.js not save when this is in use. This bug is not present on FireFox which automatically fixes this for some reason. Stupid bug, stupid fix. No lines actually added or removed."
+post;vichan-devel_vichan;2275735fdf6fba42b02c21a5e8d79b63c68a834e;papereth <69432409+papereth@users.noreply.github.com>;1597078202;"Fix information leak in thread.html (#377)
+
+Sensitive information can be leaked due to inadequate/absent escaping, if proxy_save enabled
+
+Line 14 is truncating before removing tags, this can cause some tags to be cut and therefore not be removed by the `remove_` functions.
+Line 22 is just leaking it all, not removing anything."
+post;vichan-devel_vichan;6ccaf19045d049ea8a9ef9dec3a2f49959e88b56;papereth <69432409+papereth@users.noreply.github.com>;1597501187;"Fixed `thread.html` template (#380)
+
+* Update functions.php
+
+` $_SERVER['REMOTE_ADDR']` was hardcoded in ban lookup instead of `$ip` variable
+
+* Fix information leak in thread.html
+
+Sensitive information can be leaked due to inadequate/absent escaping.
+
+Line 14 is truncating before removing tags, this can cause some tags to be cut and therefore not be removed by the `remove_` functions.
+Line 22 is just leaking it all, not removing anything.
+
+* Fixed thread template
+
+`remove_markup` is not available on vichan, arguably it makes things better but it's out of scope for this CHANGE, removing modifiers is enough to stop the info leak
+consider adding it again after pulling:
+fallenPineapple@a5b3336
+
+also moving truncation before escaping for extra safety"
+post;vichan-devel_vichan;19151def82e9c2033429e0439f2f86087452204d;Sardach <sardach@users.noreply.github.com>;1604109409;"insignificant fix
+
+PHP7 shows a warning when executing tools/rebuild2.php: ""Declaration of case-insensitive constants is deprecated""
+$group_name and $group_value really not need be case-insensitive, so i simply removed that ""true""."
+post;vichan-devel_vichan;d7d478181df3d8433af7bc115743ef88b9279ba6;Fredrick Brennan <copypaste@kittens.ph>;1605312304;"Update README.md
+
+not offering paid support right now"
+post;vichan-devel_vichan;d6d10829918f5354f7cbc3bc942547d79ac1f245;Mert Kasım İmran <33033949+isaacimran@users.noreply.github.com>;1606755694;"Fix for title/subtitle related issue
+
+Subtitle was the page title and title was unused."
+post;vichan-devel_vichan;d8e3925183a0924cac41442b6e11f2940be998fc;panfu28 <34801669+panfu28@users.noreply.github.com>;1607717443;"Update config.php
+
+just fixed a comment that might confuse new users, plus it was outdated"
+post;vichan-devel_vichan;f91cbc16f8dbf7f4e57b713ef774bcd53ee14576;panfu28 <34801669+panfu28@users.noreply.github.com>;1607738564;"Update index.css
+
+Fixed some errors and replaced lines started with 4 spaces for a tab, some lines started with a tab already so why not make it consistent."
+post;vichan-devel_vichan;4070e82ae49f3909c3b20d0b076743514a0a8122;panfu28 <34801669+panfu28@users.noreply.github.com>;1607739128;"Update index_fs.css
+
+More consistency fixes
+Is this type of PR allowed? I just see small errors or inconsistencies all over the place and can't help but want to make the code look and read better."
