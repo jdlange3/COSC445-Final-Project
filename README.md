@@ -14,6 +14,3 @@ We plan to extract the commit history of the repo by using a script to look at t
 * Tristan Lopez
 * Noah Cash
 * Ar-Raniry Ar-Rasyid
-
-## Additional Team Members
-We are a full team, so we are not looking for new members.
