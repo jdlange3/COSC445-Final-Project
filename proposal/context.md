@@ -56,26 +56,16 @@ proposal.
 
 ## Data sizing (measured 2026-10-22)
 
-The proposal's volume estimates come from bare clones of the four lineage repositories, fetched into one object database
-so that shared history is counted once:
+From a full clone of vichan-devel/vichan (all branches):
 
-| Repository | Commits (all refs) | Non-merge | File-change rows | Date range |
-|---|---|---|---|---|
-| vichan-devel/vichan | 9,646 | 8,396 | 25,276 | 2010-11-02 → 2026-07-06 |
-| savetheinternet/Tinyboard | 2,201 | 2,140 | 4,986 | 2010-11-02 → 2014-07-08 |
-| ctrlcctrlv/infinity | 7,796 | 6,920 | 19,820 | 2010-11-02 → 2020-06-12 |
-| lainchan/lainchan | 4,307 | 3,959 | 10,503 | 2010-11-02 → 2026-08-09 |
-| **Combined, deduplicated** | **10,189** | **8,862** | **27,404** | 68,957 diff hunks, 259 author emails |
+- 9,646 commits (8,396 non-merge), 2010-11-02 to 2026-07-06
+- 25,276 file changes
+- 65,641 changed code blocks (diff hunks), the record count used in the proposal
 
-Vichan's `master` branch alone has 4,814 commits, which is the number the existing `vichan_project_stats.csv` uses.
-On GitHub, Vichan has about 458 issues, 490 PRs, 769 stars, and 216 forks, and its parent repository is
-`savetheinternet/Tinyboard`.
-
-Commands used (run inside the combined bare repo):
+Commands:
 
 ```
 git rev-list --all --count
-git rev-list --all --no-merges --count
 git log --all --no-merges --numstat --format= | grep -c .
 git log --all --no-merges -p --format= | grep -c '^@@'
 ```

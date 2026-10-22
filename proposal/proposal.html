@@ -8,110 +8,80 @@
   body { font-family: "Times New Roman", Times, serif; font-size: 11pt; line-height: 1.15; margin: 0; color: #000; }
   h1 { font-size: 15pt; text-align: center; margin: 0 0 2pt; }
   .sub { text-align: center; margin: 0 0 8pt; }
-  h2 { font-size: 12pt; margin: 9pt 0 3pt; border-bottom: 1px solid #000; }
-  p { margin: 0 0 5pt; text-align: justify; }
+  h2 { font-size: 12pt; margin: 10pt 0 3pt; border-bottom: 1px solid #000; }
+  p { margin: 0 0 5pt; }
   ul { margin: 0 0 5pt; padding-left: 18pt; }
   li { margin-bottom: 2pt; }
-  table { border-collapse: collapse; width: 100%; margin: 3pt 0 6pt; font-size: 10.5pt; }
+  table { border-collapse: collapse; width: 100%; margin: 3pt 0 6pt; }
   th, td { border: 1px solid #000; padding: 2pt 4pt; vertical-align: top; text-align: left; }
   th { background: #e6e6e6; }
 </style>
 </head>
 <body>
 
-<h1>Analyzing the Development Lifecycle of Vichan via Automated Metadata Classification</h1>
-<p class="sub">COSC 445 Final Project Proposal &middot; Tristan Lopez, Noah Cash, Jonathan Lange, Ar-Raniry Ar-Rasyid<br>
-Repository: https://github.com/jdlange3/COSC445-Final-Project</p>
+<h1>Analyzing the Development Lifecycle of Vichan</h1>
+<p class="sub">Tristan Lopez, Noah Cash, Jonathan Lange, Ar-Raniry Ar-Rasyid</p>
 
 <h2>Objective</h2>
-<p>Our goal is to mine and analyze the development history of <b>Vichan</b>, a mid-sized open-source imageboard engine, and of the
-forks it sits between (Tinyboard before it; Infinity and Lainchan after it). We will extract commit metadata and code diffs,
-classify every change by its purpose, and use those labels to reconstruct how the project's priorities shifted over its
-16-year life (2010&ndash;2026). We are trying to answer two questions:</p>
+<p>Vichan is a free, open-source program for running imageboard websites. Its code has been public on GitHub since 2010,
+and the project officially ended in 2026. We want to use the project's change history to answer two questions:</p>
 <ul>
-  <li><b>Did Vichan move from feature development to mostly security and maintenance work as it matured</b>, and when did that shift happen?</li>
-  <li><b>How much of the code churn came from outside pressure</b> (security vulnerabilities, PHP version deprecations, spam and abuse) compared with internal work such as refactoring?</li>
+  <li>As the project got older, did the developers stop adding new features and spend most of their time on security and bug fixes?</li>
+  <li>How much of the work was caused by outside problems, such as security holes, compared with the team choosing to clean up or reorganize its own code?</li>
 </ul>
-<p>The result will be a labeled, deduplicated dataset of the Vichan lineage and a timeline that lines up category spikes with
-known events in the project's history (the Tinyboard fork, the 2013 peak, the 2018&ndash;2020 near-dormancy, the 2024 revival, and the
-2026 end-of-life notice).</p>
 
 <h2>Motivation</h2>
-<p>Most open-source projects are small, community-run, and eventually abandoned, but there is little data on how their work
-changes as they age. Vichan is a good case study for Digital Archaeology because its history is complete, public, and finished:
-the repository was archived in July 2026 with a README declaring the project's end of life. It also sits in the middle of a fork
-lineage whose branches were driven by real-world events, so the commit log is a record of how a community responded to
-outside pressure over time.</p>
-<p>Reading roughly ten thousand commits by hand is slow and inconsistent. Automated classification (keyword heuristics backed by
-LLM-assisted labeling) lets us turn short, unstructured commit messages and diffs into quantitative data, and checking those
-labels against a hand-coded sample tells us how far the method can be trusted.</p>
+<p>Many open-source projects are run by volunteers and eventually stop. Vichan's full history, from its start to its end,
+is public, so we can see how the work changed over the project's whole life. Doing this by hand would mean reading thousands of
+changes one by one, which is slow and inconsistent. Sorting the changes automatically makes the question answerable.</p>
 
 <h2>Data</h2>
-<p><b>Sources.</b> (1) The Git histories of four related repositories: <i>vichan-devel/vichan</i> (all branches),
-<i>savetheinternet/Tinyboard</i>, <i>ctrlcctrlv/infinity</i>, and <i>lainchan/lainchan</i>. (2) The GitHub REST API for
-<i>vichan-devel/vichan</i> issues, pull requests, and their comments, which give us the context that commit messages leave out.</p>
-<p><b>Retrieval.</b> Repository mining: a Python script (GitPython / <code>git log</code> subprocess wrappers) clones each repository as a bare
-mirror, fetches all of them into one object database so shared history is deduplicated by commit SHA, and writes structured CSVs. A
-second script pages through the GitHub API (authenticated, 5,000 requests/hour) for issue and PR records.</p>
-<p><b>Estimated volume</b> (measured from preliminary clones on 2026-10-22):</p>
-<table>
-  <tr><th>Record type</th><th>Unit</th><th>Approx. count</th></tr>
-  <tr><td>Commits (unique across the four repositories)</td><td>commit</td><td>10,189 (8,862 non-merge)</td></tr>
-  <tr><td>File-level changes</td><td>commit &times; file</td><td>27,404</td></tr>
-  <tr><td>Diff hunks (unit of change classification)</td><td>hunk</td><td>68,957</td></tr>
-  <tr><td>GitHub issues and pull requests (Vichan)</td><td>issue / PR</td><td>~950, plus comment threads</td></tr>
-  <tr><td>Distinct author emails (before alias merging)</td><td>identity</td><td>259</td></tr>
-</table>
-<p>Overall we expect to process about 100,000 records, with diff hunks (~69,000) as the main unit of analysis.</p>
-<p><b>Expected challenges.</b></p>
+<p><b>Source:</b> the Vichan GitHub repository (https://github.com/vichan-devel/vichan).</p>
+<p><b>What it is:</b> every saved change (a "commit") made to the code. Each commit records who made it, when, a short
+message describing it, and the exact lines of code that were added or removed.</p>
+<p><b>How we get it:</b> repository mining. We download a full copy of the repository with Git, and a Python script pulls
+the history out into spreadsheet (CSV) files.</p>
+<p><b>Amount:</b> about 9,600 commits, which touch files about 25,000 times and contain about 65,000 separate blocks of changed
+code. Each changed block of code is one record, so we expect to process about 65,000 records.</p>
+<p><b>Expected challenges:</b></p>
 <ul>
-  <li><b>Incomplete context:</b> many messages are terse ("update", "fix"), so we will classify using the diff and changed file paths as well as the message, and pull in linked PR/issue text where it exists.</li>
-  <li><b>Inconsistent identities:</b> one person committed under at least six name/email combinations (e.g. "Savetheinternet", "Michael Foster", "Fredrick Brennan"), and web merges list GitHub as the committer. We need to resolve aliases before any per-person analysis.</li>
-  <li><b>Overlapping forks:</b> the four repositories share early history, so records must be deduplicated by SHA and each commit assigned to the lineage where it first appears.</li>
-  <li><b>Unreliable timestamps and rewritten history:</b> dates are set by the committer's machine and history may have been squashed or rebased. We will compare author and committer dates and flag commits that are out of order.</li>
-  <li><b>Label validity:</b> automatic labels can be wrong, so we will measure accuracy against a hand-labeled sample.</li>
+  <li><b>Vague messages:</b> many commit messages just say "fix" or "update," so we will also look at which files and lines changed.</li>
+  <li><b>Same person, different names:</b> one developer used at least six different names and emails, so these need to be merged.</li>
+  <li><b>Wrong labels:</b> automatic sorting can make mistakes, so we need to check its results.</li>
 </ul>
 
 <h2>Approach</h2>
-<p>The project covers <b>retrieval, storage, cleaning, context recovery, and analysis</b>.</p>
 <ul>
-  <li><b>Retrieval and storage:</b> scripted cloning and extraction into three linked tables (commits, file changes, hunks) keyed by SHA, plus API tables for issues and PRs. All of it goes into a SQLite database so it can be queried again.</li>
-  <li><b>Cleaning and normalization:</b> separate merge commits, convert timestamps to UTC, deduplicate shared history across forks, build a <code>.mailmap</code>-style alias table using email and name matching with manual review, and flag bot or automated commits.</li>
-  <li><b>Classification:</b> a two-stage pipeline. Stage one uses keyword and file-path rules (for example CVE/XSS/CSRF/injection terms mean Security; <code>*.md</code> files mean Documentation). Stage two sends the remaining or low-confidence records to an LLM with the message, file list, and a truncated diff. Each commit is tagged <i>Feature, Bugfix, Refactoring, Security, Documentation,</i> or <i>Maintenance/Dependency</i>.</li>
-  <li><b>Validation:</b> two team members independently hand-label a stratified random sample of about 400 commits. We report agreement between the coders (Cohen's &kappa;) and the pipeline's precision and recall for each category.</li>
-  <li><b>Context recovery and analysis:</b> aggregate labels by month and by era, test whether the Security and Maintenance share rises over time, measure churn (lines changed) by category, match security spikes to linked issues and PRs, and compare category mixes across the four forks.</li>
+  <li><b>Collect:</b> write a Python script that downloads the history and saves it to CSV files.</li>
+  <li><b>Clean:</b> remove "merge" commits that only combine other work, put all dates in one time zone, and combine the different names that belong to the same person.</li>
+  <li><b>Sort:</b> label each change as a <i>Feature, Bug fix, Security fix, Code cleanup,</i> or <i>Documentation</i> change. We will first use keywords (for example, "XSS" or "vulnerability" means Security), then use an AI tool to label anything the keywords cannot.</li>
+  <li><b>Check:</b> label a small random sample by hand and compare it with the automatic labels to see how accurate they are.</li>
+  <li><b>Analyze:</b> count each type of change per year and graph it, so we can see whether security and bug-fix work grew as the project aged.</li>
 </ul>
-<p>Tools: Python, Git, GitPython, pandas, SQLite, the GitHub REST API, an LLM API, and Matplotlib/Seaborn.</p>
+<p><b>Tools:</b> Git, Python, pandas, an AI tool for labeling, and Matplotlib for graphs.</p>
 
 <h2>Team Responsibilities</h2>
-<table>
-  <tr><th>Member</th><th>Role</th><th>Responsibilities</th></tr>
-  <tr><td>Jonathan Lange</td><td>Data Engineer</td><td>Write the cloning and extraction scripts and the GitHub API collector, define the CSV/SQLite schema, and validate the raw data (record counts, missing fields).</td></tr>
-  <tr><td>Tristan Lopez</td><td>Cleaning &amp; Integration</td><td>Deduplicate across forks, handle merges and timezones, resolve author aliases, flag bots, and link commits to issues and PRs.</td></tr>
-  <tr><td>Ar-Raniry Ar-Rasyid</td><td>Classification Lead</td><td>Write the keyword rules and LLM prompts, run the full classification, and coordinate the hand-labeled validation sample and accuracy metrics.</td></tr>
-  <tr><td>Noah Cash</td><td>Analysis &amp; Reporting</td><td>Run the timeline and churn analysis, make the visualizations, lead the final report and presentation, and match spikes to historical events.</td></tr>
-</table>
-<p>Every member hand-labels part of the validation sample and contributes to the final report.</p>
+<ul>
+  <li><b>Jonathan Lange:</b> writes the script that collects the data.</li>
+  <li><b>Tristan Lopez:</b> cleans the data.</li>
+  <li><b>Ar-Raniry Ar-Rasyid:</b> builds the automatic labeling and checks its accuracy.</li>
+  <li><b>Noah Cash:</b> makes the graphs and writes the final report.</li>
+</ul>
 
 <h2>Timeline and Milestones</h2>
 <table>
-  <tr><th>Week of</th><th>Milestone</th><th>Deliverable</th></tr>
-  <tr><td>Oct 26</td><td>Data retrieval</td><td>Extraction scripts for all four repositories; raw commit, file, and hunk CSVs; issue and PR data from the API.</td></tr>
-  <tr><td>Nov 2</td><td>Cleaning &amp; storage</td><td>Deduplicated SQLite database, alias table, merge and bot flags, UTC timestamps.</td></tr>
-  <tr><td>Nov 9</td><td>Pipeline setup</td><td>Rules and LLM prompts tested on a 200-commit pilot; codebook written; validation sample drawn.</td></tr>
-  <tr><td>Nov 16</td><td>Full classification</td><td>Whole dataset labeled; hand-labeling done; accuracy and &kappa; reported; prompts revised if needed.</td></tr>
-  <tr><td>Nov 23</td><td>Analysis</td><td>Monthly and per-era timelines, churn by category, fork comparison, spikes matched to events.</td></tr>
-  <tr><td>Nov 30</td><td>Final report</td><td>Written report, final figures, cleaned code and data in the repository, presentation.</td></tr>
+  <tr><th>Week of</th><th>Milestone</th></tr>
+  <tr><td>Oct 26</td><td>Data collected into CSV files</td></tr>
+  <tr><td>Nov 2</td><td>Data cleaned</td></tr>
+  <tr><td>Nov 9</td><td>Labeling tested on a small sample</td></tr>
+  <tr><td>Nov 16</td><td>All data labeled and accuracy checked</td></tr>
+  <tr><td>Nov 23</td><td>Graphs and analysis done</td></tr>
+  <tr><td>Nov 30</td><td>Final report finished</td></tr>
 </table>
 
 <h2>Expected Outcome</h2>
-<p>The main result is a <b>data analysis</b> with a clear finding: a validated, category-labeled timeline of the Vichan lineage
-that shows whether and when the project shifted from feature work to security and maintenance work, and how much of its churn
-came from outside pressure versus internal refactoring. Supporting outputs are (1) a reusable, documented pipeline that extracts,
-deduplicates, and classifies commits from any Git repository, (2) a cleaned SQLite dataset of about 100,000 linked records
-with resolved author identities, and (3) an accuracy assessment of automated commit classification on a real, messy history.
-If the hypothesis is not supported, for example if Security never becomes the dominant category, that is still a result the
-data can back up, and we will report it.</p>
+<p>A data analysis with graphs showing how Vichan's work changed over its life. It will show whether the project moved
+from building new features toward mostly security and bug fixes, and how much of its work was caused by outside problems.</p>
 
 </body>
 </html>
