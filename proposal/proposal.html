@@ -5,83 +5,87 @@
 <title>Project Proposal - Vichan</title>
 <style>
   @page { size: letter; margin: 1in; }
-  body { font-family: "Times New Roman", Times, serif; font-size: 11pt; line-height: 1.15; margin: 0; color: #000; }
+  body { font-family: "Times New Roman", Times, serif; font-size: 12pt; line-height: 1.15; margin: 0; color: #000; }
   h1 { font-size: 15pt; text-align: center; margin: 0 0 2pt; }
-  .sub { text-align: center; margin: 0 0 8pt; }
-  h2 { font-size: 12pt; margin: 10pt 0 3pt; border-bottom: 1px solid #000; }
-  p { margin: 0 0 5pt; }
-  ul { margin: 0 0 5pt; padding-left: 18pt; }
-  li { margin-bottom: 2pt; }
+  .sub { text-align: center; margin: 0 0 10pt; }
+  h2 { font-size: 12pt; margin: 10pt 0 3pt; }
+  p { margin: 0 0 6pt; text-align: justify; }
   table { border-collapse: collapse; width: 100%; margin: 3pt 0 6pt; }
-  th, td { border: 1px solid #000; padding: 2pt 4pt; vertical-align: top; text-align: left; }
+  th, td { border: 1px solid #000; padding: 2pt 5pt; vertical-align: top; text-align: left; }
   th { background: #e6e6e6; }
 </style>
 </head>
 <body>
 
 <h1>Analyzing the Development Lifecycle of Vichan</h1>
-<p class="sub">Tristan Lopez, Noah Cash, Jonathan Lange, Ar-Raniry Ar-Rasyid</p>
+<p class="sub">Tristan Lopez, Noah Cash, Jonathan Lange, and Ar-Raniry Ar-Rasyid</p>
 
 <h2>Objective</h2>
-<p>Vichan is a free, open-source program for running imageboard websites. Its code has been public on GitHub since 2010,
-and the project officially ended in 2026. We want to use the project's change history to answer two questions:</p>
-<ul>
-  <li>As the project got older, did the developers stop adding new features and spend most of their time on security and bug fixes?</li>
-  <li>How much of the work was caused by outside problems, such as security holes, compared with the team choosing to clean up or reorganize its own code?</li>
-</ul>
+<p>Vichan is a free, open-source program used to run imageboard websites. Its source code has been publicly available on
+GitHub since 2010, and the project formally ended in 2026. The goal of this project is to study the complete history of
+changes made to Vichan in order to understand how the work on it evolved over time. Specifically, we aim to answer two
+questions. First, as the project matured, did its developers shift away from adding new features and toward spending most
+of their effort on security and bug fixes? Second, how much of the work was driven by outside problems, such as newly
+discovered security vulnerabilities, as opposed to the team's own decisions to reorganize or improve existing code?</p>
 
 <h2>Motivation</h2>
-<p>Many open-source projects are run by volunteers and eventually stop. Vichan's full history, from its start to its end,
-is public, so we can see how the work changed over the project's whole life. Doing this by hand would mean reading thousands of
-changes one by one, which is slow and inconsistent. Sorting the changes automatically makes the question answerable.</p>
+<p>A large share of open-source software is built and maintained by volunteers, and many of these projects eventually slow
+down or stop entirely. Understanding how the work on such projects changes as they age can help explain why they decline
+and what it takes to keep them running. Vichan is a strong case study because its entire lifespan, from its first change
+in 2010 to its end in 2026, is publicly recorded. Reviewing thousands of changes by hand would be slow and prone to
+inconsistency, so this project uses automated classification to make the question practical to answer while still allowing
+the results to be checked for accuracy.</p>
 
 <h2>Data</h2>
-<p><b>Source:</b> the Vichan GitHub repository (https://github.com/vichan-devel/vichan).</p>
-<p><b>What it is:</b> every saved change (a "commit") made to the code. Each commit records who made it, when, a short
-message describing it, and the exact lines of code that were added or removed.</p>
-<p><b>How we get it:</b> repository mining. We download a full copy of the repository with Git, and a Python script pulls
-the history out into spreadsheet (CSV) files.</p>
-<p><b>Amount:</b> about 9,600 commits, which touch files about 25,000 times and contain about 65,000 separate blocks of changed
-code. Each changed block of code is one record, so we expect to process about 65,000 records.</p>
-<p><b>Expected challenges:</b></p>
-<ul>
-  <li><b>Vague messages:</b> many commit messages just say "fix" or "update," so we will also look at which files and lines changed.</li>
-  <li><b>Same person, different names:</b> one developer used at least six different names and emails, so these need to be merged.</li>
-  <li><b>Wrong labels:</b> automatic sorting can make mistakes, so we need to check its results.</li>
-</ul>
+<p>The data for this project comes from the official Vichan repository on GitHub (https://github.com/vichan-devel/vichan).
+A repository stores every saved change to the code, known as a commit. Each commit records who made the change, when it was
+made, a short message describing it, and the exact lines of code that were added or removed. We will obtain this data
+through repository mining: we will download a complete copy of the repository using Git and write a Python script that
+extracts the history into structured CSV files.</p>
+<p>A preliminary download shows that the repository contains approximately 9,600 commits. These commits modify files about
+25,000 times and contain roughly 65,000 individual blocks of changed code. We will treat each block of changed code as one
+record, which means we expect to process approximately 65,000 records.</p>
+<p>We anticipate several challenges with this data. Many commit messages are vague, often consisting of a single word such
+as "fix" or "update," so we will also examine the files and lines that changed to understand each commit's purpose. In
+addition, the same developer often appears under different names and email addresses; one developer alone used at least
+six. These identities must be combined to avoid counting a single person as several. Finally, because our labels will be
+assigned automatically, some will be incorrect, so the results must be validated before they can be trusted.</p>
 
 <h2>Approach</h2>
-<ul>
-  <li><b>Collect:</b> write a Python script that downloads the history and saves it to CSV files.</li>
-  <li><b>Clean:</b> remove "merge" commits that only combine other work, put all dates in one time zone, and combine the different names that belong to the same person.</li>
-  <li><b>Sort:</b> label each change as a <i>Feature, Bug fix, Security fix, Code cleanup,</i> or <i>Documentation</i> change. We will first use keywords (for example, "XSS" or "vulnerability" means Security), then use an AI tool to label anything the keywords cannot.</li>
-  <li><b>Check:</b> label a small random sample by hand and compare it with the automatic labels to see how accurate they are.</li>
-  <li><b>Analyze:</b> count each type of change per year and graph it, so we can see whether security and bug-fix work grew as the project aged.</li>
-</ul>
-<p><b>Tools:</b> Git, Python, pandas, an AI tool for labeling, and Matplotlib for graphs.</p>
+<p>This project focuses on the retrieval, cleaning, and analysis stages of the Digital Archaeology process. We will begin by
+writing a Python script that downloads the repository's history and saves it as CSV files. Next, we will clean the data by
+removing merge commits (which only combine work that already exists elsewhere in the history), converting all timestamps
+to a single time zone, and combining the different names that belong to the same developer.</p>
+<p>We will then classify each change into one of five categories: Feature, Bug Fix, Security Fix, Code Cleanup, or
+Documentation. Classification will begin with keyword matching; for example, a message containing "XSS" or "vulnerability"
+will be labeled as a security fix. Changes that keywords cannot classify will be labeled using an AI language model. To
+measure accuracy, we will label a small random sample by hand and compare those labels with the automated results. Finally,
+we will count the number of changes in each category per year and present the results as graphs, which will show whether
+security and bug-fix work grew as a share of total activity over the project's lifetime. The main tools will be Git, Python,
+the pandas library, an AI language model, and Matplotlib for visualization.</p>
 
 <h2>Team Responsibilities</h2>
-<ul>
-  <li><b>Jonathan Lange:</b> writes the script that collects the data.</li>
-  <li><b>Tristan Lopez:</b> cleans the data.</li>
-  <li><b>Ar-Raniry Ar-Rasyid:</b> builds the automatic labeling and checks its accuracy.</li>
-  <li><b>Noah Cash:</b> makes the graphs and writes the final report.</li>
-</ul>
+<p>Jonathan Lange will write the script that collects the repository data and saves it in a usable format. Tristan Lopez
+will be responsible for cleaning the data, including removing merge commits and combining duplicate developer identities.
+Ar-Raniry Ar-Rasyid will build the automated classification process and lead the accuracy check against the hand-labeled
+sample. Noah Cash will produce the graphs and lead the writing of the final report.</p>
 
 <h2>Timeline and Milestones</h2>
 <table>
   <tr><th>Week of</th><th>Milestone</th></tr>
-  <tr><td>Oct 26</td><td>Data collected into CSV files</td></tr>
-  <tr><td>Nov 2</td><td>Data cleaned</td></tr>
-  <tr><td>Nov 9</td><td>Labeling tested on a small sample</td></tr>
-  <tr><td>Nov 16</td><td>All data labeled and accuracy checked</td></tr>
-  <tr><td>Nov 23</td><td>Graphs and analysis done</td></tr>
-  <tr><td>Nov 30</td><td>Final report finished</td></tr>
+  <tr><td>October 26</td><td>Repository data collected and saved as CSV files</td></tr>
+  <tr><td>November 2</td><td>Data cleaned and developer identities combined</td></tr>
+  <tr><td>November 9</td><td>Classification tested on a small sample</td></tr>
+  <tr><td>November 16</td><td>Full dataset classified and accuracy checked</td></tr>
+  <tr><td>November 23</td><td>Analysis and graphs completed</td></tr>
+  <tr><td>November 30</td><td>Final report completed</td></tr>
 </table>
 
 <h2>Expected Outcome</h2>
-<p>A data analysis with graphs showing how Vichan's work changed over its life. It will show whether the project moved
-from building new features toward mostly security and bug fixes, and how much of its work was caused by outside problems.</p>
+<p>The final result will be a data analysis, supported by graphs, that describes how the work on Vichan changed over its
+lifetime. We expect it to show whether the project moved from building new features toward primarily security and
+maintenance work, and to estimate how much of the project's activity was a response to outside problems rather than
+internal improvement.</p>
 
 </body>
 </html>
