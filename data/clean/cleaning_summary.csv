@@ -1,0 +1,8 @@
+step,count
+extracted commits (all branches),9646
+after removing merge commits,8396
+after removing duplicate copies on other branches,5241
+raw author name/email pairs,248
+developers after combining identities,194
+extracted hunks,65641
+hunks in kept commits,46290

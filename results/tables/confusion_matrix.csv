@@ -1,0 +1,6 @@
+hand label,Feature,Bug Fix,Security Fix,Code Cleanup,Documentation
+Feature,63,5,0,2,0
+Bug Fix,7,50,0,4,4
+Security Fix,3,2,5,0,0
+Code Cleanup,5,8,0,25,0
+Documentation,2,4,0,0,11

@@ -1,0 +1,201 @@
+sha,year,subject,hand_label
+ed35ad8bc6505eebdd53c6feb5f90bfc76aa3dfb,2014,dubcheck updates slovak translation on transifex,Documentation
+5cfe5000a2e389f416b7c29eecd0a2f51cc45f26,2011,support for other browsers,Bug Fix
+d85cb47647ec5333c196a105f6d48a4df7b5967b,2017,report event,Feature
+210563045dabebec3ef8a4f1c3823293659fdc8d,2010,Close SQL connection on error.,Bug Fix
+281f39120562d2af157a0302207032b7a4e4f361,2024,docker: remove PEAR leftovers,Code Cleanup
+610d5a6a9673cd776132a441b44ea0781b840ff2,2013,max width and height for player.php video,Feature
+e97bdaac2141df18552451ca93b656726cd69cb5,2011,custom tripcodes,Feature
+0c8941fc5b463c4d8225e314ffd5da517953f98a,2012,benchmark.php: Benchmark thumbnailing methods,Feature
+162fcff691f8bd4a14e1985131af3a1fd52a7ff9,2010,Added basis for query handling.,Feature
+83b062a89633da8b84aa7664c5bbeed53f4697f7,2010,Em-dash auto replace.,Feature
+572a11dba722cc7a7dbefc818a6a265535b3fcf1,2022,Flip insane default for non-developers,Security Fix
+306f4ef46bcbede59b427268fe6d8b5e18c811b2,2014,Added escapeshellarg() for WebM thumbnail generation.,Security Fix
+6ed13f3fb0cc8921bb8dcbf87626cb734e90ef8f,2014,SECURITY: Board Owners could brick accounts by creating account names of matching users with different capitalizations,Security Fix
+946c49ac5aa00a14cf6e8333e0802a719205ccfa,2013,boardlist work part 1: boardname in subtitle; work to make js restyling feasible,Feature
+4545d33b74af10be3cede9197589013e7e73ec08,2023,added missing change from commit for hcaptcha,Bug Fix
+d134d2ae22e879becc9d5fc67d7ef63987c409b6,2013,post-hider.js: further code cleanup; fix displaying on board pages,Code Cleanup
+0de0bc6ceb2c56256bf87724572055297dae76af,2013,Optional: Allow uploading by URL,Feature
+f16f621def58e717c69d2e8af77610f41ffc2ccd,2011,Build Javascript file on installation,Feature
+ae559819d2c70770179835e40534ba22ed505a3f,2012,removed unused error.html template,Code Cleanup
+05ab38d355e347d72a2ff82de3ef978939a63326,2012,escape HTML in debug data,Security Fix
+272cc7c2f954bddd173cdc0317980c3c0e3133c5,2012,"use ""git pull"" in auto-upgrade if available",Feature
+0d0b2fcd7e807f50b621c17e153194cf99edef5b,2015,thread-stats.js: vichan fixes,Bug Fix
+3f341c41739dbb5ab6f8dd03124e26fe46c2d138,2015,ROBOT9000 in ?/settings,Feature
+d4dc36cd7419a31c1af0adfd2b3d3f4ac0787a6d,2011,..,Bug Fix
+d9b983a3fbc55c89e1f84376f57f11baa0328b8d,2024,post.php: check post body min and max op characters,Feature
+d63dea93c52cab59b926e12daa2de36cdb1d4e3c,2014,Remove links from ban list,Feature
+8170e226ecb93b76a9fe5a3b7c46dab1e36e9afe,2024,we don't need vichan to require two versions of php. removed redundant 5.6.,Code Cleanup
+2fae55c0942f5cb192e5f1caaf57f419a245a3fb,2013,"debug/sql: show ""NULL"" for null columns",Feature
+ae848ef6663ec90c1e83f3729558c59547b2e0e7,2012,use border-right-color for firefox,Bug Fix
+d67351534a4d54af65b0b9d6515587c49c772934,2014,toggle tree view,Feature
+ea8fda63b8aad6cdeead47fb8968d0a5f5b776d5,2014,Sync tomorrow.css (fix colors in catalog),Bug Fix
+dc725641c35184e7d1854900f9adb71d0c543ee5,2015,minor options template adjustment,Code Cleanup
+6c334a3b4494a9b1b3e9f801dab45e6e027dceed,2014,lol spaces,Code Cleanup
+f9ca74d763e570bd8004ec432c8d9c69d6c5d9e7,2012,"use ""!"" delimiter to make things easier",Code Cleanup
+46b29de7ff6e020d41bf40182327d613d8c87bc3,2023,remove requires since we are using autoload and its broken,Bug Fix
+07b825c6d2abd3312747fafe49c0a1d3011242ae,2013,Don't create anti-bot stuff in buildThread() when asked to return HTML as a string.,Bug Fix
+df0813e9d8557e8c4d2ac2ec50ecff50deb22532,2011,cache bug,Bug Fix
+0e805c25d8f3044a2c6640a1e8818d3774a0ff07,2015,file-selector.js: allow file dropping anywhere,Feature
+96f5770e2e216056a62b239b5df6a2acc7fc9531,2014,leave the download-original js for compatibility,Code Cleanup
+7911c374e86ef8fa69c4545867b9d9d3de12d5c6,2015,Public action logs commit (log.php),Feature
+91525761817ed4d837d04de3f3f49a3ac6fe0de5,2025,style.css: reduce margin between head and rest of the post,Feature
+6f04ef7775053e9c0223a6115a2989fddcc4474c,2011,Fix for iPods and other devices,Bug Fix
+d274180f81d50fbb378ada700b1814d6ed163ed6,2014,recount-bumps.txt: a small fix,Bug Fix
+adf086de6ecdba23a08620cdbc3cfeb6aaea8aa0,2015,Attempted performance fix for scroll in auto-reload,Code Cleanup
+fcab256146bd9ef25028cf0e484360df841c1f8e,2011,"memcached, that is",Feature
+41daaa16b16146fa90461d514f31a90c71d3b402,2010,boards now have individual tables.,Feature
+dc40c2c84517cf355cd5d22c96bea756fd774af8,2012,attention bar: cleanup stylesheets,Code Cleanup
+b63d94838da090cddb98f1b7f19268a32c6a75d8,2013,Do truncation by actual character count.,Bug Fix
+652099e0c43044e8e87c818536310ad7a3a8c4bf,2012,updated Polish locale,Documentation
+962febb96ae182bcc9670016d3b8313420d1f390,2010,Unicode failure.,Bug Fix
+b3532ba54610aeddb5ee661528953fc0b44bdf84,2014,allow mods to bypass DNSBL checks,Feature
+46ba60fff12ff669ac5ea0d3a1d08f7f2a172cf1,2015,Handle NULL files in class Post,Bug Fix
+8849f5a2db1d041df556d069bb0b530aee11294e,2010,Maximum image dimensions,Feature
+784ea1eba91dfa33a63e8aa3007568700ea792bd,2012,permissions consistency for some user-submitted stylesheets,Code Cleanup
+d234c014f06955974e10a25b1199f22c226e7808,2013,?/debug/apc with cache prefixes,Feature
+639785cd4311ceabf1978c7f301773dbfb2749e3,2023,Added some small information about the requirement for boardlinks for script to load,Documentation
+5df3ae6606d8fffd9dce686449547507bcb516b6,2023,Update post.php,Bug Fix
+2050a97e130b002420816ebd17bbf8b2d1df5356,2011,fixed syslog() for CLI mode,Bug Fix
+81e0f55b0059ed39cceb31777d3c8d8565bb8386,2012,pasek atencji dodany do templates,Feature
+7cf3fccda5546a7f134916fcec458af48af42373,2015,Fix menu brokenness if user post deletion disabled,Bug Fix
+de17bdb317d4fae6d23b0313231d1383562e3ef6,2012,Remade config[redraw_image],Feature
+90072213ee4499e029461398d43790cddbf3e0e8,2024,Remove tegaki form in quick reply,Bug Fix
+c36d654a083913d186442bb639212e9531b9dec1,2012,Clip post to page borders.,Feature
+d13f30b39f93f694241239c86c08c306c7b94fd4,2013,js/settings.js: Simple config stuff for javascript extensions,Feature
+b5a9dc4d1a1ce3173745e2e8e14ce37a25f689a3,2024,bans.php: remove multiple return types for PHP 7.4 support,Bug Fix
+ca0e7ffc5d270cf46c83dc3c74427da183fe5b54,2014,Update 404.php,Code Cleanup
+a7d4614a3eeed5f147678458a58204c4564bbd5f,2014,Better read.php +50 regex,Bug Fix
+5ae84062369de7e14291b7344eb55381dd9bd8f3,2014,typo @ vichan-devel#41,Bug Fix
+17943d8be9cdd964c5d66dcde4f12119a7f8532c,2010,Em-dashes were being read as en-dashes.,Bug Fix
+83cbe5977bd3fd34fb0a8293875d443ccb726749,2015,"less_ip is now per board, not site-wide",Feature
+af06cf37378806e7718a56a7a439b06bc4250514,2020,Disable `check_updates` by default,Bug Fix
+ee7c624517f52450a5959457b633143bb2c6174b,2015,Signed-off-by: 8n-tech <8n-tech@users.noreply.github.com>,Bug Fix
+fea5ff94dd6e4416941ae444e377bef9d2cd9cbd,2013,stylesheets/photon.css,Feature
+4f96263e3b72124df7b152e5dd2b513683fda818,2014,"Upgrade jQuery mixitup, preserve settings, no animations",Feature
+b223b2b2f848c2e2da25a9ee3066908c2280b40a,2014,Remove erroneous data and fix indentation,Code Cleanup
+1b5f2b08f4703381d958560d0c8ab7503b203618,2012,moved $OP to $post['op']. post() now has one argument instead of two.,Code Cleanup
+82e3592703f50869d589839f7d4d1bf763852b51,2013,"Argh, just remove all RTL and LTR control codes in bidi_cleanup.",Bug Fix
+05e719cea01e1e523d6db973955b1664387433a0,2013,js i18n: forced-anon.js,Documentation
+eaacf2719965cc4609778dfe0f5ddb2b24e7eaf7,2024,post.php: do not strip orientation metadata,Bug Fix
+0a6a982ae9f3418d905b1869a8f284f3c08b3382,2013,"i18n_extract tool: replace the bundled lib with gettext forced to assume python, since it extracts more strings",Code Cleanup
+1cab7bc74f3052de570603935692d4c2e2cf6a1d,2014,Prevent one type of blank-posting,Bug Fix
+624b629ff36da7afd84163c6aaa53b16e214fe0a,2025,hide.php: add hide.php to the functions,Security Fix
+ecd2616ae89a92bf93bc537acfb4aec9464964c4,2015,Bugfix: auto update option,Bug Fix
+5ef004c7add773fac62144188057ecc48a720d82,2023,remove telegrams,Code Cleanup
+3e28328dc9b064efc8a03000c82b4e05ac4148eb,2011,syslog(),Feature
+bd3bf7e4f8cf0fbec2b70d59f5200f1e6c16f5ba,2024,docker: reduce file permissions,Security Fix
+f0412b08140e256056fd1ea41ea1930fcc321d22,2012,paginate ban list,Feature
+631c50c3b35196f19aaf706c492c6e9ef5b647bb,2015,"Update ""featured on""",Documentation
+5a73af9ea1f333fd79fb3cb42ed73f83e50651ec,2014,add a webm posthandler,Feature
+a5bd39dc4ab2394db7f87d80a01480b22e4a74e1,2016,mod dashboard html: link to page editor,Feature
+55905bce1ff701ae7f21102c2236c5e2a19cd784,2014,Update template to reflect new limit...actually it should read from config...,Documentation
+7e3905d5fd54152a51d7085150213c7dded1848d,2011,IPv6 for mod.php,Feature
+dc8b1948ddb75ac9a620f1146ce2b19627de4222,2013,Performance: Only purge old antispam hashes once per request (at most),Code Cleanup
+3b03e18d68de3d56930956ac0d61d934d82d4f49,2013,i18n even more strings in inc/display.php,Documentation
+b2999760075df7da4606f3190e878b79dd7bfe61,2013,two tiny changes,Documentation
+e80549a8816f1a01cf150a05017d9ee81e5e31d0,2021,Enforce maximum length of ban appeal,Feature
+e43764a1585aa37809ad3cf25aa71e1d5a8470bf,2015,Workaround for https://trac.ffmpeg.org/ticket/4362,Bug Fix
+4420c08ef4b1fcf8c1eb27ebf4db4abf9606d63a,2025,functions.php: remove insertFloodPost,Code Cleanup
+66d2f901718dcdb3e88cb9683b3cd02e5f9a3100,2024,cache-driver.php: filesystem handle expired values.,Feature
+f48d338ce051070a0eb096ab5cac073f19467549,2012,$('div.post.reply:last') is too specific; use $('div.post:last') or else it won't include the OP,Bug Fix
+4f775fc98d0d063856c926fbfcb07f51bbb92e8a,2011,Allow users to change their own passwords,Feature
+6ec0c17ac9c7a927c2573c14aa852fa1f1bc5268,2025,Update login.html #890,Feature
+c327a0439ee3d812a2ce2aefbec99883395b2a0f,2024,main.js: rename init_stylechooser to camelCase,Code Cleanup
+970ff0d61911b4054cc0214de1db2deabe738cae,2014,this is how you cache,Code Cleanup
+9c7c6320aef9ba53d5613df9714a114f2c2edf12,2012,Bugfix: was not correctly purging old anti-bot hashes,Bug Fix
+fc00b08c8071513f4dcff3535813a042a90b6b97,2023,[README] Add timeline,Documentation
+2372b7f7b0db0476bc76104d8450985387a1ffa3,2024,context.php: include ReportQueries,Code Cleanup
+18e9c32a0eed1c1b4134f2dbfed293cec9c18e25,2014,limit the cli debug uptput,Code Cleanup
+514eb2aa840f00b83dc92a034955711f5674bd74,2011,bug fix for non-image and spoiler thumbnails,Bug Fix
+abd65b0c8a4c032ebe8ed6e65d0bb9d071acfd06,2012,small cleanup,Code Cleanup
+0c074016e71145671cdf03ec0c94c9cf717492de,2024,context.php: much better Dependency Injection implementation,Code Cleanup
+9ddb5833b3ddac50f326ffa1ff0c6b32b5a2abee,2017,Implementing a new captcha,Feature
+da86c76165398bfa8a29c8bd78a1dd157c561737,2011,"Revert """"Are you sure you want to continue"" message when pre-installation test failed""",Code Cleanup
+19ebd82abc3fbcaaeb450c2bd5fe4c24df0d112a,2014,update eo locale,Documentation
+5ac46989efefe61105d61e152cb02005e7740c11,2025,context.php: import captcha drivers,Code Cleanup
+786ac5c55cf151ffcb942d78554c5ae06471eda0,2013,recaptcha: fix for https,Bug Fix
+e4210300ce521368e6e6dccc3b4471e72d4e1e78,2014,adjust volume with scroll wheel,Feature
+e28f233e3de6d471ab2ce9c178ba8d626bbeb563,2014,Close #51: Prevent players from cheating the dice roller by using markup,Bug Fix
+10a82199656aa5a9f5b81afda1a2f3512f46efe2,2015,enable a `basic` cache by default; notify me if it breaks your chan,Feature
+d10968a6693dfe7b429fd2d3b41e33d812796c9c,2025,page.html: add support for multiple subtitles,Feature
+a38831a1ef998778bcd36a38124bf50e76f9c303,2012,"using HTTP/1.1, not HTTP/1.0 for PURGE",Bug Fix
+9ea5ff610e38f3c390cb19bec86ee5b1ab57d187,2014,bypass (OP) text,Bug Fix
+99b1ffe35a46869ee2c617c6c25581b41290fe7b,2011,fixed small html error,Bug Fix
+a7a93ece3d96acb24c589662f49d28675c83c913,2013,$config['error']['invalidzip'] isn't used anywhere anymore,Feature
+fe60590d192cebfdcd3f8e9cf0c687aea881577e,2014,Check spoiler_image size before ussuming it is 128×128px,Bug Fix
+5fd0d21d5664d54d436e26c5ff68fb8ee79a423c,2010,Comment fail.,Bug Fix
+1a7ebc88ba5ab314f87da0a691dbdc11226dcfd4,2025,thread-stats.js: format,Code Cleanup
+00ad1ecf1560c663e56b53e5686d13d021c195ba,2015,smart_build: fix one possible performance problem,Bug Fix
+af403e11193c3b768272c80f6a7e5299ad79ad44,2014,No more automatic claiming,Feature
+443d13a3bc9936c4226231f0305ff2e195869761,2011,bug/typo fix for dnsbl_exceptions,Bug Fix
+ff730c861b7a8c4e5b7502e198cb1a979ad04abd,2011,Started on internationalization (i18n),Feature
+5c9c095e84b0b818ab7ab032f6617fb1bdf5af20,2014,"okay, that dready css rule refered to this...",Bug Fix
+c9844b86bf20387ce6dc3528c43bb870f2ea9600,2011,v0.9.4,Code Cleanup
+67bab31510af9135fdd0a6fff8777fd9f82076f1,2015,- Reworked tag weight.,Feature
+82c960cc94eddd1a245a8c1d2f102f9165db1530,2012,Added UNSIGNED to ID fields.,Code Cleanup
+85d37a55c31c7c69eef80f0395d5355b8b511042,2011,remove the retard function html_entity_decode_utf8(). not sure why seisatsu added it in the first place.,Code Cleanup
+292ce42cd7610d043b4dadffa514ad7b8b2a2961,2025,environment variable handling and better configuration options in Docker setup,Feature
+d4ad874e09f026de2ade18f49797dcac4e65f67b,2013,no,Code Cleanup
+eb146d92015e3bfe7b2fad68dd4b8c29542a31b3,2012,properly tie auth cookies to private salt,Security Fix
+67cbc2b1aaf285c604c618de646d6d6e1e930b7a,2013,Fix permissions with search,Security Fix
+fc8caec0eccaa5c92f7547ba2d826f80233be3f7,2014,"Fix ""You look like a bot"" bug when board sets its own locale",Bug Fix
+99706835c228152fdd42adc20724fb7f4c05488a,2015,"Revert ""Revert ""smart_build for buildIndex""""",Feature
+b8c53fbbcdffe50e1548c38ff764cf4cb11e2c50,2024,dice.php: extract email dice function from functions.php,Code Cleanup
+d5e42bf5bfe3d9475ab82dbf30bdbe371a55bf1a,2011,Ban list changes,Feature
+b891a3f2304543093b186fb5b2a4dc7158647566,2012,use lowercase doctype in templates,Code Cleanup
+1b4012f8793d4a3a4f22d23c5cf01957d08940c5,2010,Changed defaults for previous commit,Feature
+40ab2e0c1728fab613bc16a19ab8fcb3fa78c1d4,2013,Don't redraw image again after correcting image orientation; Correct image orientation with convert+gifsicle too,Bug Fix
+797fd8ad131e909d4dcc436e6bfa73921d8ea1dd,2011,Embedding field,Feature
+be781eadd82a7b8ed00061f52b5df165598e67c1,2024,composer.json: remove captcha-queries.php,Code Cleanup
+3b85485290d61950fea8b7fd652a8feb331c05f7,2014,"include wPaint submodule, references bug vichan-devel#20",Feature
+a01f8e9e117fccf3425abc46f23f340caa3d4957,2014,actually allow for a log-only filter,Bug Fix
+8ac139f6a23da24be41e4295ee356bfc7d7822a3,2012,post editing bug,Bug Fix
+8756bd8544d8a8dda643fa0d90228eb1e11bcbb1,2014,Fix stylechooser,Bug Fix
+c009543ce181e7192e4b2869318b355c52a023c1,2014,Re-added support for youtu.be shortURLs,Feature
+c5dfc2937c52ca0be07969dcd1617614c5c69b01,2014,fix double quoting in links. thanks STI for reporting that,Bug Fix
+0a6aab860a10318668bb3e4ec41c4cfa6a3801e4,2010,Bug fix for setups on the root URI/directory (/),Bug Fix
+e034b9179dd2777353c369910e65350d5496b779,2014,fix paths in templates,Bug Fix
+650ef8bcc28f7d364fc55f30ea19c6985d54fe30,2024,Fix crash if no captcha is enabled,Bug Fix
+e4b6c89375d60424e1e029cb3d10c8ec2be49620,2012,show number of reports from dashboard; translatable mod panel,Feature
+e6934eceb2983e5f138373b340b0bd3ec0a33865,2013,that didn't work. try this?,Bug Fix
+d51e1291aaaeded2fc274b9f9ecd951adbc574d6,2011,Public ban style,Feature
+3654c4f7ef51d731689594d293d2cb677e47d522,2014,Signed-off-by: unknown <8n-tech@users.noreply.github.com>,Feature
+501484088b4012c8a52cb922d0ec0fac7014f34c,2015,gallery-view: i forgot the stylesheet,Bug Fix
+54cd4d41f2c3a47ac6b891aa3a72d87349d4eb76,2021,Fix custom thumb_ext for ImageMagick convert,Bug Fix
+f2128758f26a9f6402c906c3e10728f16822d779,2013,i18n tools: small fixes,Bug Fix
+345aeabc5992f327c4e735b728389d8ad07ea45d,2011,...,Code Cleanup
+88c863a43a3d5c2f09256e8d3a4ff693aa103417,2025,config.php: bump password crypt version,Security Fix
+4a22ee9245b81e9a94bcc18128cf9ad10d19d901,2014,Extra files and IDs in API,Feature
+d1e57290e04cc025f44e85dbf98e894e284d5f5d,2025,Update bug_report.yml,Documentation
+632293f927256601aaea5e919567cd4eb555bc89,2025,Call JSON API's `translateBoards()` in `setupBoard()` function,Feature
+00cc1f434d30cd489141d2316876f42cc10ce15f,2024,anti-bot.php: add comments to _create_antibot,Documentation
+2f1526a1a6f698f29c5a07a9f46c808b59cced2e,2014,add missing tablesorter library,Bug Fix
+31420d41908b581ba743d8d5c27951ee2c8b4031,2014,update es_ES locale,Documentation
+e8bfdfd9c8ec971ef12314229d4e3f2eca4c24c7,2012,Automatically convert all post times to local time using Javascript.,Feature
+8548a4ff703acd5a77e4ce678eeb88e4261a1aa6,2016,Fixed report syslog message,Bug Fix
+219c1987a90d828b3e0c38b66509617ad78b91ab,2015,Add extension mp4,Feature
+cf6bf2c7dcadd8c58ebae658d789c756d92585d1,2012,PHP already adds <code> for highlight_string(),Documentation
+e7f25aa480cf30ed901ce72d230cc5e08269179e,2013,add delete event,Feature
+e9f1d59209cf308442e4a1dc4969ad8db8e9e69c,2024,posts.sql: update column password,Security Fix
+890b541191286a7ce0d62df86fef37cf86abb1a8,2012,custom capcode permissions,Feature
+0cefa9353bd6641641f5c7e7d4c7712712056d4a,2021,Recalculate filesize after stripping metadata,Bug Fix
+7d11c7a8842b36df9555d6d3569b30a248fdb4a5,2014,Fix mod mode for read.php,Bug Fix
+6577a0d9d8b4ddff1eb4ee76935b7b2a39ab18c6,2022,Fix typo,Documentation
+53ea541a82cd2b27f5d5d8335ea036558da03b9e,2011,"""img"" folder needs to be moved too",Code Cleanup
+a59c2e83698d604456fbc85b8a118f7d312cfb39,2013,Spoil files moderator action,Feature
+4fcf9c2c916140f8dc95fc975b4ff61cfb98c6cf,2012,Starting on ?/ban/<post>,Feature
+7bf662460c5a162a4dda54ae42d529eb1bf55e52,2014,update eo locale,Documentation
+0387ae1b46c62bc977172fd1c35f9684461e73d6,2013,Use exiftool to patch bug for now.,Bug Fix
+fc63de4ed420cebf1d5f0bfb7862321f65ed27ed,2024,"Use two Dockerfiles, move Docker stuff to /docker",Code Cleanup
+ce755b8b511e84a46643c127627005cff6640d07,2017,Update quick-reply.js,Bug Fix
+a457b905bf378cbb05b3b9c205d58881ca04b851,2024,from master branch,Bug Fix
+81daf934fb4d1740583220694083b292bc697206,2014,Fix for the js being shitty inside the compiled main.js.,Bug Fix
+4a8fbb5f6dd9fd8bae1abc7fb2b6249770eb4f7f,2013,Catalog link script to be used with catalog theme,Feature
+c64a96d5724333a6ff0b45f74dc54c82ca286510,2015,Update README.md,Documentation
+b85e1f2f0bbdf73a5cfd6543cc5dafa653be6c59,2015,Make it so board owners can force flags,Feature
+90ada24ddc84c08ddeb2411e0ede02b1afa7104c,2012,Insert into posts table using named columns.,Code Cleanup
+a97b08db42cd06bf75d353153b55a235dff281b2,2015,New option: $config[twig_cache],Feature
+7ff9cd6f2d97d5dda0e6655f9fd2f2ccd5eacedc,2011,"require ""inc/instance-config.php"", not ""instance-config.php""",Bug Fix
+35325bd0110d62ff0468c2b57251678409e674f2,2011,IPv6_IPv4,Feature
+92310f445ca443bb6c83a372ba59761b15361c3b,2011,Allow custom URLs for stylesheet/javascript/banner,Feature
